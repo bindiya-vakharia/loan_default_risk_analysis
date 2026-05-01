@@ -33,38 +33,52 @@ _Which borrowers are most likely to default, and how can we identify them effect
 
 ## Project Overview
 ### 1. **Data Cleaning & Preparation**
-   - Standardised column formats and handled missing values
-   - Cleaned and validated financial attributes
-   - Converted loan status into binary variables for modelling
+- Standardised column formats and handled missing values
+- Cleaned and validated financial attributes
+- Converted loan status into binary variables for modelling
   
 ### 2. **Exploratory Data Analysis**
-   - Analysed default trends across income, DTI, and loan amount
-   - Identified high-risk borrower segments
-   - Evaluated relationships between financial variables and default behaviour
-  
+- Analysed the distribution of borrower income and loan amounts to understand portfolio composition
+- Examined the relationship between DTI and default risk to identify financially over-leveraged borrowers
+- Evaluated income vs loan amount patterns to assess repayment capacity
+- Compared default rates across income groups, DTI levels, and loan segments
+- Identified high-risk borrower profiles using multi-variable analysis
+
+   
 ### 3. **Feature Engineering**
-   - Created **loan-to-income** ratio to capture repayment capacity
-   - Grouped borrowers into risk-relevant segments
+- Created **loan-to-income** ratio to capture repayment capacity
+- Grouped borrowers into risk-relevant segments
 
 ### 4. **Predictive Modelling**
-  - Built a **Random Forest classifier** to identify high-risk borrowers
-  - Evaluated performance using classification metrics 
+- Built a **Random Forest classifier** to identify high-risk borrowers
+- Evaluated performance using classification metrics 
  #### **Model Performance**
-  - Accuracy:
-  - Precision (Default Class):
-  - Recall (Default Class):
+  - Accuracy: **78%**
+  - Precision (Default Class): **45%**
+  - Recall (Default Class): **15%**
+
+**Interpretation:**
+The model performs well in identifying non-default cases but has limited ability to detect actual defaulters.
+This highlights the challenges of class imbalance in credit risk modelling. 
 
 ### 5. **Dashboard Development (Power BI)**
+
    #### **Page 1: Loan Portfolio Overview**
-   - KPIs: Total Loans, Avg Loan Amount, Default Rate, Avg Income
-   - Loan status distribution
-   - Interactive slicers (Income, Loan Amount, DTI Group)
    
+   _Provides a high-level view of portfolio health for quick decision-making._
+    
+   - Displays key KPIs: Total Loans, Avg Loan Amount, Default Rate, Avg Income
+   - Provides Loan status distribution and portfolio composition
+   - Interactive slicers for filtering (Income, Loan Amount, DTI Group)
+
    **Key Insight:**
    
    The portfolio shows a **~20% default rate**, indicating moderate risk with overall stable repayment behaviour.
 
    #### **Page 2: Credit Risk Analysis**
+
+ _Helps identify risk drivers and vulnerable customer segments._
+   
    - Default rate by DTI, income level, and loan amount
    - Multi-variable risk visualisation
 
@@ -75,6 +89,9 @@ _Which borrowers are most likely to default, and how can we identify them effect
    - Combined **low income + high DTI** represents the highest risk segment
 
   #### **Page 3: Model Insights and Risk Segmentation**
+
+ _Supports risk-based lending and early-stage screening_
+  
   - Predicted risk distribution
   - Actual vs predicted loan outcomes
   - Risk score segmentation
@@ -102,7 +119,7 @@ Loan-Default-Risk-Analysis/
 │
 ├── data/
 ├── notebook.ipynb
-├── loan_predictions.csv
+├── loan_analysis_output.csv
 ├── dashboard.pbix
 ├── images/
 └── README.md
@@ -110,15 +127,15 @@ Loan-Default-Risk-Analysis/
 
 ## How to Run
 1. Clone this repository
-2. Install dependencies:
-  ```
-  pip install pandas numpy scikit-learn matplotlib seaborn
-  ```
+2. Install dependencies
+   ```
+   pip install pandas numpy scikit-learn matplotlib seaborn
+   ```
 3. Run the Jupyter Notebook
    ```
    notebook.ipynb
    ```
-5. Open Power BI file:
+4. Open the Power BI file
    ```
    dashboard.pbix
    ```
@@ -137,13 +154,15 @@ Loan-Default-Risk-Analysis/
 ## Dashboard Preview
 
 ### Portfolio Overview
-![Overview](images/image1.png)
+![Overview](image/image1.png)
+
 
 ### Credit Risk Analysis
-![Risk](images/image2.png)
+![Risk](image/image2.png)
+
 
 ### Model Insights
-![Model](images/image3.png)
+![Model](image/image3.png)
    
 
 
